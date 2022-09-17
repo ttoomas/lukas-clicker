@@ -1,37 +1,53 @@
-// const box = document.querySelector('.main__videoBox');
-// const clickCountText = document.querySelector('.count__times');
+const box = document.querySelector('.main__videoBx');
+const mainVideoTop = document.querySelector('.main__videoTop');
+const mainVideoBottom = document.querySelector('.main__videoBottom');
+const countText = document.querySelector('.count__times');
 
-// let i = 0;
+const mainClick = document.querySelector('.main__click')
+const mainCandy = document.querySelector('.main__candy');
 
-
-// // Box Video
-// box.addEventListener('click', () => {
-//     if(!box.hasAttribute('disable')){
-//         box.play();
-//         box.setAttribute('disable', '');
-//         box.setAttribute('playing', '');
-
-//         plusOne();
-
-//         setTimeout(() => {
-//             box.removeAttribute('playing')
-//         }, 1900);
-//     }
-//     else if(!box.hasAttribute('playing')){
-//         plusOne();
-//     }
-// })
+let i = 0;
 
 
-// // Function plusOne to add one number to var. i and rewrite html
-// function plusOne(){
-//     if(i == 19){
-//         console.log('change');
-//     }
-//     else if(i == 29){
-//         console.log('another change');
-//     }
+// Video Box
+box.addEventListener('click', () => {
+    if(!mainVideoTop.hasAttribute('disableVideo')){
+        mainVideoTop.play();
+        mainVideoBottom.play();
 
-//     i++
-//     clickCountText.innerText = i;
-// }
+        mainVideoTop.setAttribute('disableVideo', '');
+        mainClick.setAttribute('disable', '');
+
+        plusOne();
+
+        setTimeout(() => {
+            mainCandy.style.top = "-85px";
+
+            setTimeout(() => {
+                mainClick.removeAttribute('disable');
+            }, 350);
+
+        }, 1600);
+    }
+})
+
+// 1st Candy
+mainCandy.addEventListener('click', () => {
+    if(!mainClick.hasAttribute('disable')){
+        plusOne();
+    }
+})
+
+
+// Function plusOne to add one number to var. i and rewrite html
+function plusOne(){
+    i++
+    countText.innerText = i;
+
+    if(i == 15){
+        console.log('change');
+    }
+    else if(i == 25){
+        console.log('another change');
+    }
+}

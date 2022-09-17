@@ -48,12 +48,28 @@ h1,h2,h3,h4,h5,h6,p{
     position: relative;
     width: 350px;
     height: 350px;
+    margin-top: 100px;
 }
 
 .main__videoBx{
     width: 350px;
     height: 350px;
     position: relative;
+}
+.main__videoCover{
+    display: block;
+    position: absolute;
+    background-color: #f0cfa6;
+    width: 72px;
+    height: 46px;
+    top: 129px;
+    left: 84px;
+    transform: rotate(15deg);
+    pointer-events: none;
+    z-index: 19;
+}
+.mainClickChild{
+    position: absolute;
 }
 .main__videoTop, .main__videoBottom{
     position: absolute;
@@ -62,21 +78,14 @@ h1,h2,h3,h4,h5,h6,p{
     z-index: 1;
 }
 .main__videoBottom{
-    z-index: 10;
+    z-index: 20;
 }
 .main__candy{
     z-index: 5;
     width: 150px;
-
-    /* Transition test */
-    transition: transform 500ms ease-in-out;
-}
-
-.mainClickChild{
-    position: absolute;
-}
-
-/* Transition test */
-.main__click:hover .main__candy{
-    transform: translateY(-175px);
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: top 500ms ease-in-out;
+    /* top: -85px; */ /* Top for animation */
 }
