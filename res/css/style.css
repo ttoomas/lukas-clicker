@@ -86,6 +86,26 @@ h1,h2,h3,h4,h5,h6,p{
     top: 100px;
     left: 50%;
     transform: translateX(-50%);
-    transition: top 500ms ease-in-out;
+    transition: all 500ms ease-in-out;
     /* top: -85px; */ /* Top for animation */
+}
+
+/* 2nd candy - Fidorka */
+.main__fidorka{
+    width: 165px;
+    top: 93px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 500ms ease-in-out;
+    /* top: -88px; */ /* Top for animation */
+}
+
+/* 3rd candy - Tatranka */
+.main__tatranka{
+    width: 220px;
+    top: 58px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 500ms ease-in-out;
+    /* top: -130px; */ /* Top for animation */
 }
