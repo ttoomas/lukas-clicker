@@ -23,20 +23,20 @@ h1,h2,h3,h4,h5,h6,p{
     width: 100vw;
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
 }
 
 /* Main Number Count */
-.main__number{
+.main__count{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     column-gap: 8px;
+    margin-top: 9rem;
 
 }
-.main__title, .main__times{
+.count__text, .count__times{
     font-size: 2rem;
     word-spacing: 0px;
 }
@@ -45,4 +45,38 @@ h1,h2,h3,h4,h5,h6,p{
 .main__click{
     display: grid;
     place-items: center;
+    position: relative;
+    width: 350px;
+    height: 350px;
+}
+
+.main__videoBx{
+    width: 350px;
+    height: 350px;
+    position: relative;
+}
+.main__videoTop, .main__videoBottom{
+    position: absolute;
+}
+.main__videoTop{
+    z-index: 1;
+}
+.main__videoBottom{
+    z-index: 10;
+}
+.main__candy{
+    z-index: 5;
+    width: 150px;
+
+    /* Transition test */
+    transition: transform 500ms ease-in-out;
+}
+
+.mainClickChild{
+    position: absolute;
+}
+
+/* Transition test */
+.main__click:hover .main__candy{
+    transform: translateY(-175px);
 }
