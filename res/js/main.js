@@ -41,22 +41,6 @@ mainCandy.addEventListener('click', () => {
 // 2nd Candy - Fidorka
 const mainFidorka = document.querySelector('.main__fidorka');
 
-function fidorkaSwap(){
-    mainClick.setAttribute('disable-count', '');
-
-    mainCandy.style.left = "120%";
-    mainCandy.style.opacity = "0";
-
-    setTimeout(() => {
-        mainFidorka.style.top = "-88px";
-        
-        setTimeout(() => {
-            mainClick.removeAttribute('disable-count');
-        }, 350);
-
-    }, 400);
-}
-
 mainFidorka.addEventListener('click', () => {
     if(!mainClick.hasAttribute('disable-count')){
         plusOne();
@@ -66,23 +50,16 @@ mainFidorka.addEventListener('click', () => {
 // 3rd candy - Tatranka
 const mainTatranka = document.querySelector('.main__tatranka');
 
-function tatrankaSwap(){
-    mainClick.setAttribute('disable-count', '');
-
-    mainFidorka.style.left = "120%";
-    mainFidorka.style.opacity = "0";
-
-    setTimeout(() => {
-        mainTatranka.style.top = "-130px";
-
-        setTimeout(() => {
-            mainClick.removeAttribute('disable-count');    
-        }, 350);
-
-    }, 400);
-}
-
 mainTatranka.addEventListener('click', () => {
+    if(!mainClick.hasAttribute('disable-count')){
+        plusOne();
+    }
+})
+
+// 4th candy - Bueno
+const mainBueno = document.querySelector('.main__bueno');
+
+mainBueno.addEventListener('click', () => {
     if(!mainClick.hasAttribute('disable-count')){
         plusOne();
     }
@@ -91,16 +68,49 @@ mainTatranka.addEventListener('click', () => {
 
 // Function plusOne to add one number to var. i and rewrite html
 function plusOne(){
-    // i++;
+    i++;
     // Only for development !!!
-    i += 5;
+    // i += 5;
 
     countText.innerText = i;
 
+    angryMan();
+
     if(i == 15){
-        fidorkaSwap();
+        candySwap(mainCandy, mainFidorka, "-88px");
     }
     else if(i == 25){
-        tatrankaSwap();
+        candySwap(mainFidorka, mainTatranka, "-130px");
     }
+    else if(i == 35){
+        candySwap(mainTatranka, mainBueno, "-43px");
+    }
+}
+
+// Function angryMan to increase opacity of red angry man every click
+const angryManRed = document.querySelector('.bottom__imgRed');
+let redManIncrease = 0.025;
+let redManOpa = 0;
+
+function angryMan(){
+    if(redManOpa < 1){
+        angryManRed.style.opacity = redManOpa += redManIncrease;
+    }
+}
+
+// Function candySwap for swap from old candy to new candy
+function candySwap(oldCandy, newCandy, newCandyTop){
+    mainClick.setAttribute('disable-count', '');
+
+    oldCandy.style.left = "120%";
+    oldCandy.style.opacity = "0";
+
+    setTimeout(() => {
+        newCandy.style.top = newCandyTop;
+
+        setTimeout(() => {
+            mainClick.removeAttribute('disable-count');
+        }, 350);
+
+    }, 400);
 }

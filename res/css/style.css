@@ -70,6 +70,7 @@ h1,h2,h3,h4,h5,h6,p{
 }
 .mainClickChild{
     position: absolute;
+    user-select: none;
 }
 .main__videoTop, .main__videoBottom{
     position: absolute;
@@ -80,23 +81,24 @@ h1,h2,h3,h4,h5,h6,p{
 .main__videoBottom{
     z-index: 20;
 }
-.main__candy{
+
+.mainClickChild:not(:first-child){
     z-index: 5;
-    width: 150px;
-    top: 100px;
     left: 50%;
     transform: translateX(-50%);
-    transition: all 500ms ease-in-out;
+    transition: top 500ms ease-in-out, left 500ms ease-in-out, opacity 500ms ease-in-out;
+}
+
+.main__candy{
+    width: 150px;
+    top: 100px;
     /* top: -85px; */ /* Top for animation */
 }
 
 /* 2nd candy - Fidorka */
 .main__fidorka{
-    width: 165px;
-    top: 93px;
-    left: 50%;
-    transform: translateX(-50%);
-    transition: all 500ms ease-in-out;
+    width: 124px;
+    top: 138px;
     /* top: -88px; */ /* Top for animation */
 }
 
@@ -104,8 +106,32 @@ h1,h2,h3,h4,h5,h6,p{
 .main__tatranka{
     width: 220px;
     top: 58px;
-    left: 50%;
-    transform: translateX(-50%);
-    transition: all 500ms ease-in-out;
     /* top: -130px; */ /* Top for animation */
+}
+
+/* 4th candy - bueno */
+.main__bueno{
+    width: 177px;
+    top: 148px;
+    /* top: -43px; */ /* Top for animation */
+}
+
+
+/* Bottom Section */
+.main__bottom{
+    align-self: flex-end;
+    margin-top: auto;
+    padding: 0 40px 16px 0;
+}
+.bottom__imgBx{
+    position: relative;
+    width: 64px;
+    height: 84px;
+}
+.bottom__img, .bottom__imgRed{
+    width: 64px;
+    position: absolute;
+}
+.bottom__imgRed{
+    opacity: 0;
 }
