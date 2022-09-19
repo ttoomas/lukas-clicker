@@ -38,33 +38,21 @@ mainCandy.addEventListener('click', () => {
     }
 })
 
-// 2nd Candy - Fidorka
+
+// Candies
 const mainFidorka = document.querySelector('.main__fidorka');
-
-mainFidorka.addEventListener('click', () => {
-    if(!mainClick.hasAttribute('disable-count')){
-        plusOne();
-    }
-})
-
-// 3rd candy - Tatranka
 const mainTatranka = document.querySelector('.main__tatranka');
-
-mainTatranka.addEventListener('click', () => {
-    if(!mainClick.hasAttribute('disable-count')){
-        plusOne();
-    }
-})
-
-// 4th candy - Bueno
 const mainBueno = document.querySelector('.main__bueno');
 
-mainBueno.addEventListener('click', () => {
-    if(!mainClick.hasAttribute('disable-count')){
-        plusOne();
-    }
-})
+let mainCandyArray = [mainFidorka, mainTatranka, mainBueno];
 
+mainCandyArray.forEach(oneCandy => {
+    oneCandy.addEventListener('click', () => {
+        if(!mainClick.hasAttribute('disable-count')){
+            plusOne();
+        }
+    })
+})
 
 // Function plusOne to add one number to var. i and rewrite html
 function plusOne(){
